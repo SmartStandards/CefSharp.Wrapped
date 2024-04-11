@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\..\dist\bin-net6.0\</BaseOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="CefSharp.Wrapped">
+      <HintPath>..\..\dist\bin-net6.0\CefSharp.Wrapped.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCpu'">
+    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCpu'">
+    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DefineConstants>TRACE;NET5</DefineConstants>
+  </PropertyGroup>
+  
+</Project>

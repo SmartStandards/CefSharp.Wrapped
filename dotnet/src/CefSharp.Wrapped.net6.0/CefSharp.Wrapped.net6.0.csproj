@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>CefSharp.Wrapped</AssemblyName>
+    <RootNamespace>System</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PackageId>CefSharp.Wrapped</PackageId>
+    <Description>CefSharp.Wrapped</Description>
+    <Product>CefSharp.Wrapped</Product>
+    <Company>(public domain)</Company>
+    <Copyright>SmartStandards</Copyright>
+    <Version>999.0.0</Version>
+    <AssemblyVersion>999.0.0.0</AssemblyVersion>
+    <Authors>SmartStandards</Authors>
+    <FileVersion>999.0.0.0</FileVersion>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>
+    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
+    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DefineConstants>TRACE;NET5</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="CefSharp">
+      <HintPath>..\..\dist\bin-net6.0\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CefSharp.Core">
+      <HintPath>..\..\dist\bin-net6.0\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CefSharp.Core.Runtime">
+      <HintPath>..\..\dist\bin-net6.0\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\..\dist\bin-net6.0\\CefSharp.WinForms.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\CefSharp.Wrapped\CefSharp.Wrapped.projitems" Label="Shared" />
+  
+</Project>
