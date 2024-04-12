@@ -27,7 +27,7 @@ namespace CefSharp.Wrapped.NetFxDemo {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      this.cef = new System.Windows.Forms.CefSharpWrapper();
+      this.cef = new System.Windows.Forms.CefControl();
       this.SuspendLayout();
       // 
       // cef
@@ -53,7 +53,7 @@ namespace CefSharp.Wrapped.NetFxDemo {
 
     #endregion
 
-    private CefSharpWrapper cef;
+    private CefControl cef;
   }
 
 }

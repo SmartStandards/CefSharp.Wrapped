@@ -23,11 +23,12 @@
     ///  the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      cef = new CefSharpWrapper();
+      cef = new CefControl();
       this.SuspendLayout();
       // 
       // cef
       // 
+      cef.BrowserInstanceSharingGroup = "";
       cef.Dock = DockStyle.Fill;
       cef.Location = new Point(0, 0);
       cef.Name = "cef";
@@ -42,12 +43,12 @@
       this.Controls.Add(cef);
       this.Name = "Form1";
       this.StartPosition = FormStartPosition.CenterScreen;
-      this.Text = "CefSharp.Wrapped-Demo (.NET Core)";
+      this.Text = "CefSharp.Wrapped-Demo (.NET Core x64)";
       this.ResumeLayout(false);
     }
 
     #endregion
 
-    private CefSharpWrapper cef;
+    private CefControl cef;
   }
 }

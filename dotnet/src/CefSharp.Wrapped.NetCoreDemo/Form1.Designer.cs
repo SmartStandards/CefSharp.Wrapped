@@ -1,6 +1,7 @@
-﻿
+﻿using System.Windows.Forms;
+
 namespace CefSharp.Wrapped.NetCoreDemo {
-  
+
   partial class Form1 {
     /// <summary>
     ///  Required designer variable.
@@ -18,18 +19,19 @@ namespace CefSharp.Wrapped.NetCoreDemo {
       base.Dispose(disposing);
     }
 
-    #region Windows Form Designer generated code
+    #region " Windows Form Designer generated code "
 
     /// <summary>
     ///  Required method for Designer support - do not modify
     ///  the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      cef = new CefSharpWrapper();
+      cef = new CefControl();
       this.SuspendLayout();
       // 
       // cef
       // 
+      cef.BrowserInstanceSharingGroup = "";
       cef.Dock = DockStyle.Fill;
       cef.Location = new Point(0, 0);
       cef.Name = "cef";
@@ -44,13 +46,13 @@ namespace CefSharp.Wrapped.NetCoreDemo {
       this.Controls.Add(cef);
       this.Name = "Form1";
       this.StartPosition = FormStartPosition.CenterScreen;
-      this.Text = "CefSharp.Wrapped-Demo (.NET Core)";
+      this.Text = "CefSharp.Wrapped-Demo (.NET Core x86)";
       this.ResumeLayout(false);
     }
 
     #endregion
 
-    private CefSharpWrapper cef;
+    private CefControl cef;
 
   }
 

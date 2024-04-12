@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CefSharp.Wrapped.RuntimeBundle</id>
+    <version>999.0.0-localbuild</version>
+    <title>CefSharp.Wrapped.RuntimeBundle</title>
+    <authors>SmartStandards</authors>
+    <owners>(public domain)</owners>
+    <copyright>SmartStandards</copyright>
+    <description>CefSharp.Wrapped</description>
+    <tags>CefSharp Wrapper Winforms</tags>
+    <!-- https://spdx.org/licenses/ -->
+    <license type="expression">GPL-3.0-only</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <icon>PackageIcon.png</icon>
+    <projectUrl>https://github.com/SmartStandards/CefSharp.Wrapped</projectUrl>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6">   
+      </group>
+      <group targetFramework="net6.0">
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package#from-a-convention-based-working-directory -->
+    <file src="PackageIcon.png" target="" />
+    
+    <!-- .NET 4.6.1 -->
+    <file src="dist\bin-net46\CefSharp.Wrapped.dll" target="lib/net46" />
+    <file src="dist\bin-net46\CefSharp.Wrapped.xml" target="lib/net46" />
+    <file src="dist\bin-net46\CefSharp.Wrapped.pdb" target="lib/net46" />   
+    <file src="dist\bin-net46\CefSharp.Winforms.dll" target="lib/net6.0" /> 
+    <file src="dist\bin-net46\CefSharp.dll" target="lib/net6.0" />
+    <file src="dist\bin-net46\CefSharp.Core.dll" target="lib/net6.0" />
+      
+    <!-- .NET 6.0 -->
+    <file src="dist\bin-net6.0\CefSharp.Wrapped.dll" target="lib/net6.0" />
+    <file src="dist\bin-net6.0\CefSharp.Wrapped.xml" target="lib/net6.0" />
+    <file src="dist\bin-net6.0\CefSharp.Wrapped.pdb" target="lib/net6.0" />  
+    <file src="dist\bin-net6.0-x86\CefSharp.Winforms.dll" target="lib/net6.0" /> 
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.dll" target="lib/net6.0" />
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.dll" target="lib/net6.0" />
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.Runtime.dll" target="lib/net6.0" />         
+
+    <!-- CefCharp non-.NET Runtimes -->
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\Ijwhost.dll" target="CefRuntimes" />     
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\native\*.*" target="CefRuntimes" />
+    <file src="dist\bin-net6.0-x86\runtimes\win-x86\native\locales\*.*" target="CefRuntimes/locales" />
+
+
+    <!-- Build-Targets zum kopieren der CefCharp non-.NET Runtimes in den build-output -->
+    <file src="CopyCefRuntimesToOutdir.targets" target="build/net46/CopyCefRuntimesToOutdir.targets" />
+    <file src="CopyCefRuntimesToOutdir.targets" target="build/net6.0/CopyCefRuntimesToOutdir.targets" />
+    
+    <!-- Build-Targets, welche bei der Nuget-Package Installation automatisch in die Projektdatei indiziert werden -->
+    <file src="InjectIntoProjectFile.targets" target="build/net46/CefSharp.Wrapped.targets" />
+    <file src="InjectIntoProjectFile.targets" target="build/net6.0/CefSharp.Wrapped.targets" />
+       
+  </files>
+</package>

@@ -24,8 +24,26 @@
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
   </PropertyGroup>
-
-  <ItemGroup><!--
+  
+  <ItemGroup>
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x64\lib\netcoreapp3.1\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x64\native\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x64\CefSharp.WinForms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="CefSharp">
       <HintPath>..\..\dist\bin-net6.0\CefSharp.dll</HintPath>
       <Private>True</Private>
@@ -45,31 +63,12 @@
       <HintPath>..\..\dist\bin-net6.0\CefSharp.WinForms.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>False</SpecificVersion>
-    </Reference>-->  
+    </Reference>
     <Reference Include="CefSharp.Wrapped">
       <HintPath>..\..\dist\bin-net6.0\CefSharp.Wrapped.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x64\lib\netcoreapp3.1\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x64\native\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x64\CefSharp.WinForms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
-    </ContentWithTargetPath>
   </ItemGroup>
   
 </Project>
