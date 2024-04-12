@@ -6,22 +6,22 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Platforms>x86</Platforms>   
+    <Platforms>x64</Platforms>   
     <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <StartupObject>CefSharp.Wrapped.InstallerDummy.Program</StartupObject> 
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>..\..\dist\bin-net6.0-x86\</OutputPath>
+  
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>..\..\dist\bin-net6.0-x64\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <OutputPath>..\..\dist\bin-net6.0-x86\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>..\..\dist\bin-net6.0-x64\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>

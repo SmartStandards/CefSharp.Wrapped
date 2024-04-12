@@ -18,12 +18,7 @@ namespace System.Windows.Forms {
       base.OnCreateControl();
 
       var btn = new ChromiumWebBrowser();
-      //btn.Text = "BUTTONI";
       btn.Dock = DockStyle.Fill;
-
-
-
-
       this.Controls.Add(btn);
       btn.Show();
       btn.LoadUrl("https://www.google.de");

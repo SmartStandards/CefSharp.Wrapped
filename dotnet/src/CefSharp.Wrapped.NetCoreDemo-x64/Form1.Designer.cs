@@ -1,6 +1,4 @@
-﻿
-namespace CefSharp.Wrapped.NetCoreDemo {
-  
+﻿namespace CefSharp.Wrapped.NetCoreDemo {
   partial class Form1 {
     /// <summary>
     ///  Required designer variable.
@@ -51,7 +49,5 @@ namespace CefSharp.Wrapped.NetCoreDemo {
     #endregion
 
     private CefSharpWrapper cef;
-
   }
-
 }
