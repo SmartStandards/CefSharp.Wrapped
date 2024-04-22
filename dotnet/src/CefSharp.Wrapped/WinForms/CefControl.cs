@@ -48,10 +48,10 @@ namespace System.Windows.Forms {
     //}
 
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-    private CefSharp.WinForms.ChromiumWebBrowser __Browser;
+    private ChromiumWebBrowser __Browser;
 
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-    private CefSharp.WinForms.ChromiumWebBrowser _Browser {
+    private ChromiumWebBrowser _Browser {
       [MethodImpl(MethodImplOptions.Synchronized)]
       get {
         return __Browser;
@@ -110,7 +110,7 @@ namespace System.Windows.Forms {
       }
     }
 
-    public CefSharp.WinForms.ChromiumWebBrowser Browser {
+    public ChromiumWebBrowser Browser {
       get {
         return _Browser;
       }
@@ -127,8 +127,8 @@ namespace System.Windows.Forms {
       if ((_Browser != null))
         return;
 
-      var rootUrl = "http://inMemory.local/";
-      _Browser = new CefSharp.WinForms.ChromiumWebBrowser(rootUrl);
+      var rootUrl = "http://localhost:3000/";
+      _Browser = new ChromiumWebBrowser(rootUrl);
 
       if ((objectsToBridgeIntoJs != null)) {
         //CefSharpSettings.LegacyJavascriptBindingEnabled = true;
@@ -143,8 +143,8 @@ namespace System.Windows.Forms {
       this.Controls.Add(_Browser);
 
       _Browser.Name = "CefBrowser";
-      _Browser.Location = new System.Drawing.Point(247, 167);
-      _Browser.Size = new System.Drawing.Size(39, 13);
+      _Browser.Location = new Point(247, 167);
+      _Browser.Size = new Size(39, 13);
       _Browser.AutoSize = true;
       _Browser.Dock = DockStyle.Fill;
       _Browser.BackColor = Color.White;
@@ -161,14 +161,23 @@ namespace System.Windows.Forms {
       _RuntimeAdapter.Run();
     }
 
+    public void ExecuteJs(string js) {
+      if ((_Browser == null))
+        return;
+
+      _Browser.ExecuteScriptAsync(js);
+    }
+
     private void CefBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e) {
       if ((this.InvokeRequired)) {
-        this.Invoke(this.OnFrameLoadEnd);
+        Action action = () => this.OnFrameLoadEnd();
+        this.Invoke(action);
       }
       else {
         this.OnFrameLoadEnd();
       }
     }
+
     private void OnFrameLoadEnd() {
       this.InjectJsHooks();
       if ((BrowserInitialized != null && !_FirstFrameLoaded))

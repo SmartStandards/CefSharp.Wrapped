@@ -126,7 +126,7 @@ namespace System.Web.AbstractHosting.CEF {
       }
     }
 
-    bool IResourceRequestHandlerFactory.HasHandlers => throw new NotImplementedException();
+    bool IResourceRequestHandlerFactory.HasHandlers => true;
 
     private void NotifyRequestBegin(CefRuntimeAdapter.CefRequestContext context) {
       lock (_CurrentRequests)

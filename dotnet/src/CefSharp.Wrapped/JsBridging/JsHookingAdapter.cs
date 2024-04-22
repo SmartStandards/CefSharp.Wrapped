@@ -49,7 +49,10 @@ namespace System.Web.AbstractHosting.CEF.JsBridging {
 
     internal void RegisterHook(ChromiumWebBrowser browser) {
       // browser.RegisterJsObject(_JsObjectNameForDotNetClass, Me.DotNetObject)
-      browser.RegisterJsObject(_JsObjectNameForDotNetClass, this);
+      //browser.RegisterJsObject(_JsObjectNameForDotNetClass, this);
+      //CefSharpSettings.WcfEnabled = true;
+      browser.JavascriptObjectRepository.Settings.LegacyBindingEnabled = true;
+      browser.JavascriptObjectRepository.Register(_JsObjectNameForDotNetClass, this, isAsync: false, options: BindingOptions.DefaultBinder);
     }
 
     private MethodInfo[] IncludedMethods {

@@ -9,7 +9,8 @@
     <Import_RootNamespace>System</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)..\..\..\..\..\%28git%29\CefSharp.Wrapped\dotnet\src\CefSharp.Wrapped\WinForms\InstanceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinForms\ControlExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinForms\InstanceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefRequestContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefWebRequestWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefWebResponseWrapper.cs" />
@@ -18,8 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)JsBridging\JsHookingAdapter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)JsBridging\JsInMemoryHttpClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WinForms\CefControl.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)WinForms\" />
+    <Compile Include="$(MSBuildThisFileDirectory)WinForms\InstanceManager.cs" />
   </ItemGroup>
 </Project>

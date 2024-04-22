@@ -68,15 +68,15 @@ namespace System.Web.AbstractHosting.CEF {
       #endregion
 
       #region  Processing 
-        
-      public override CefReturnValue ProcessRequestAsync(IRequest cefRequest, ICallback callback) {
+
+      //TODO_RWE this was override ??
+      public CefReturnValue ProcessRequestAsync(IRequest cefRequest, ICallback callback) {
         if ((cefRequest.Url ?? "") == (_Url ?? "")) {
           callback.Continue();
           _Request = new CefRuntimeAdapter.CefWebRequestWrapper(cefRequest);
           _Owner.NotifyRequestBegin(this);
           return CefReturnValue.Continue;
-        }
-        else {
+        } else {
           callback.Cancel();
           return CefReturnValue.Cancel;
         }
