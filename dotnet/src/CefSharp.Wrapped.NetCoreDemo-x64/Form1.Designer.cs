@@ -1,4 +1,6 @@
-﻿namespace CefSharp.Wrapped.NetCoreDemo {
+﻿using System.Windows.Forms;
+
+namespace CefSharp.Wrapped.NetCoreDemo {
   partial class Form1 {
     /// <summary>
     ///  Required designer variable.
@@ -28,7 +30,7 @@
       // 
       // cef
       // 
-      cef.BrowserInstanceSharingGroup = "";
+      //cef.BrowserInstanceSharingGroup = "";
       cef.Dock = DockStyle.Fill;
       cef.Location = new Point(0, 0);
       cef.Name = "cef";

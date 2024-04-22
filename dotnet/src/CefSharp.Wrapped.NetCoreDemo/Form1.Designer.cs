@@ -31,7 +31,7 @@ namespace CefSharp.Wrapped.NetCoreDemo {
       // 
       // cef
       // 
-      cef.BrowserInstanceSharingGroup = "";
+      //cef.BrowserInstanceSharingGroup = "";
       cef.Dock = DockStyle.Fill;
       cef.Location = new Point(0, 0);
       cef.Name = "cef";

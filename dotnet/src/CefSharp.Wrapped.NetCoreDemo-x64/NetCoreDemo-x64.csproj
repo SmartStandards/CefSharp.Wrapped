@@ -44,6 +44,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CefSharp.Wrapped.net6.0\CefSharp.Wrapped.net6.0.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="CefSharp">
       <HintPath>..\..\dist\bin-net6.0\CefSharp.dll</HintPath>
       <Private>True</Private>

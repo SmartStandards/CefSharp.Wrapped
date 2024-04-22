@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)WinForms\ControlExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WinForms\InstanceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefRequestContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefWebRequestWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AbstractHosting\CefRuntimeAdapter.CefWebResponseWrapper.cs" />

@@ -52,7 +52,9 @@ namespace System.Web.AbstractHosting.CEF.JsBridging {
       //browser.RegisterJsObject(_JsObjectNameForDotNetClass, this);
       //CefSharpSettings.WcfEnabled = true;
       browser.JavascriptObjectRepository.Settings.LegacyBindingEnabled = true;
+#if !NETCOREAPP //TODO_RWE
       browser.JavascriptObjectRepository.Register(_JsObjectNameForDotNetClass, this, isAsync: false, options: BindingOptions.DefaultBinder);
+#endif
     }
 
     private MethodInfo[] IncludedMethods {
