@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace CefSharp.Wrapped.NetCoreDemo {
   partial class Form1 {
