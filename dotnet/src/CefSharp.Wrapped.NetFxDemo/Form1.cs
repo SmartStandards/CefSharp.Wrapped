@@ -17,7 +17,7 @@ namespace CefSharp.Wrapped.NetFxDemo {
     public Form1() {
       InitializeComponent();
 
-      cef.InitializeBrowser();
+      cef.InitializeBrowser("http://localhost:3000/");
       cef.Browser.LoadUrl("http://localhost:3000/");
 
       cef.Browser.FrameLoadStart += (sender, args) => {

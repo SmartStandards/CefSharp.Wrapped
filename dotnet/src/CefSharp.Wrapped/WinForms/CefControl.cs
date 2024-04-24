@@ -61,12 +61,14 @@ namespace System.Windows.Forms {
       set {
         if (__Browser != null) {
           __Browser.FrameLoadEnd -= CefBrowser_FrameLoadEnd;
+          __Browser.FrameLoadStart -= CefBrowser_FrameLoadStart;
           __Browser.ConsoleMessage -= CefBrowser_ConsoleMessage;
         }
 
         __Browser = value;
         if (__Browser != null) {
           __Browser.FrameLoadEnd += CefBrowser_FrameLoadEnd;
+          __Browser.FrameLoadStart += CefBrowser_FrameLoadStart;
           __Browser.ConsoleMessage += CefBrowser_ConsoleMessage;
         }
       }
@@ -103,6 +105,10 @@ namespace System.Windows.Forms {
 
     public delegate void BrowserInitializedEventHandler();
 
+    public event FrameLoadStartEventHandler FrameLoadStart;
+
+    public delegate void FrameLoadStartEventHandler();
+
     [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
     public JsHookingAdapter[] JsBridgedObjects {
       get {
@@ -116,6 +122,13 @@ namespace System.Windows.Forms {
       }
     }
 
+    public void LoadUrl(string url) {
+      if ((_Browser == null))
+        return;
+
+      _Browser.Load(url);
+    }
+
     public CefRuntimeAdapter RuntimeAdapter {
       get {
         return _RuntimeAdapter;
@@ -123,12 +136,11 @@ namespace System.Windows.Forms {
     }
 
     //public void InitializeBrowser(IWebRequestHandler requestHandler, IWebSessionStateManager webSessionStateManager, params object[] objectsToBridgeIntoJs) {
-    public void InitializeBrowser(params object[] objectsToBridgeIntoJs) {
+    public void InitializeBrowser(string url, params object[] objectsToBridgeIntoJs) {
       if ((_Browser != null))
         return;
-
-      var rootUrl = "http://localhost:3000/";
-      _Browser = new ChromiumWebBrowser(rootUrl);
+            
+      _Browser = new ChromiumWebBrowser(url);
 
       if ((objectsToBridgeIntoJs != null)) {
         //CefSharpSettings.LegacyJavascriptBindingEnabled = true;
@@ -156,7 +168,7 @@ namespace System.Windows.Forms {
 
       // initialize an adapter as interactor to serve the bundle directly into the browser control 
       //_RuntimeAdapter = new CefRuntimeAdapter(_Browser, requestHandler, webSessionStateManager, rootUrl);
-      _RuntimeAdapter = new CefRuntimeAdapter(_Browser, rootUrl);
+      _RuntimeAdapter = new CefRuntimeAdapter(_Browser);
 
       _RuntimeAdapter.Run();
     }
@@ -166,6 +178,15 @@ namespace System.Windows.Forms {
         return;
 
       _Browser.ExecuteScriptAsync(js);
+    }
+
+    private void CefBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
+      if ((this.InvokeRequired)) {
+        Action action = () => this.OnFrameLoadStart();
+        this.Invoke(action);
+      } else {
+        this.OnFrameLoadStart();
+      }
     }
 
     private void CefBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e) {
@@ -183,6 +204,11 @@ namespace System.Windows.Forms {
       if ((BrowserInitialized != null && !_FirstFrameLoaded))
         BrowserInitialized?.Invoke();
       _FirstFrameLoaded = true;
+    }
+
+    private void OnFrameLoadStart() {
+      this.InjectJsHooks();
+      this.FrameLoadStart?.Invoke();
     }
 
     private void InjectJsHooks() {
