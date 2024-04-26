@@ -271,6 +271,22 @@ namespace System.Windows.Forms {
     private void CefControl_Load(object sender, EventArgs e) {
     }
 
+    public string CurrentUrl {
+      get {
+        return __Browser.GetMainFrame()?.Url;
+      }
+    }
+
+    public bool IsBrowserInitialized {
+      get {
+        return __Browser.IsBrowserInitialized;
+      }
+    }
+
+    public void ShowDevTools() {
+      __Browser.ShowDevTools();
+    }
+
   }
 
 }
