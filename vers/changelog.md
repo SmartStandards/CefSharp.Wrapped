@@ -8,7 +8,13 @@ This files contains a version history including all changes relevant for semanti
 
 ## Upcoming Changes
 
-* Added Targets for .net4.8 and .net8.0
+*(none)*
+
+
+
+## v 0.1.3
+released **2025-05-08**, including:
+ - Added Targets for .net4.8 and .net8.0
 
 
 
