@@ -93,11 +93,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CefSharp.Wrapped.net48\CefSharp.Wrapped.net48.csproj">
-      <Project>{b0ba06fe-6437-4b9e-8c76-3adfc8d191d2}</Project>
-      <Name>CefSharp.Wrapped.net48</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
