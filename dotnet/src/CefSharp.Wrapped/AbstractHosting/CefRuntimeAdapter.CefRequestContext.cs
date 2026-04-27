@@ -6,6 +6,7 @@ using CefSharp.Handler;
 
 namespace System.Web.AbstractHosting.CEF {
 
+  [CLSCompliant(false)]
   public partial class CefRuntimeAdapter {
 
     [DebuggerDisplay("CefRequestContext {Identifier}")]

@@ -39,14 +39,25 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerDummy.net48", "src\CefSharp.Wrapped.InstallerDummy.net48\InstallerDummy.net48.csproj", "{78BC7553-F366-4378-8E29-32DB49853FF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefSharp.Wrapped.net48", "src\CefSharp.Wrapped.net48\CefSharp.Wrapped.net48.csproj", "{0A0C682C-1194-4D2F-BF41-FB085F8321CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78BC7553-F366-4378-8E29-32DB49853FF0} = {78BC7553-F366-4378-8E29-32DB49853FF0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerDummy.net8.0", "src\CefSharp.Wrapped.InstallerDummy.net8.0\InstallerDummy.net8.0.csproj", "{C5FC20B8-B233-1CCB-7335-FF888C34FC0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerDummy.net8.0-x64", "src\CefSharp.Wrapped.InstallerDummy.net8.0-x64\InstallerDummy.net8.0-x64.csproj", "{6C2B548D-BFAD-11F9-7628-91909E399B6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefSharp.Wrapped.net8.0", "src\CefSharp.Wrapped.net8.0\CefSharp.Wrapped.net8.0.csproj", "{7918BF5F-377B-2E40-D7B5-3284133F2CB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6C2B548D-BFAD-11F9-7628-91909E399B6A} = {6C2B548D-BFAD-11F9-7628-91909E399B6A}
+		{C5FC20B8-B233-1CCB-7335-FF888C34FC0C} = {C5FC20B8-B233-1CCB-7335-FF888C34FC0C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefSharp.Wrapped.net10.0", "src\CefSharp.Wrapped.net10.0\CefSharp.Wrapped.net10.0.csproj", "{9DD6C73E-2716-D46D-6314-C9F62956E8A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1A284E41-21FB-4821-B524-8D31EACD1AA3} = {1A284E41-21FB-4821-B524-8D31EACD1AA3}
+		{A50A4E23-B47B-2AEE-08F3-60C0B7EC7165} = {A50A4E23-B47B-2AEE-08F3-60C0B7EC7165}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerDummy.net10.0", "src\CefSharp.Wrapped.InstallerDummy.net10.0\InstallerDummy.net10.0.csproj", "{A50A4E23-B47B-2AEE-08F3-60C0B7EC7165}"
 EndProject

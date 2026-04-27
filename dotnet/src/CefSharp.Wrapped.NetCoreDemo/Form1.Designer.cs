@@ -85,7 +85,6 @@ namespace CefSharp.Wrapped.NetCoreDemo {
       this.toolStrip1.Name = "toolStrip1";
       this.toolStrip1.Size = new System.Drawing.Size(605, 25);
       this.toolStrip1.TabIndex = 0;
-      this.toolStrip1.Layout += new System.Windows.Forms.LayoutEventHandler(this.HandleToolStripLayout);
       // 
       // backButton
       // 
