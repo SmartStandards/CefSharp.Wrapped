@@ -2,38 +2,38 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
-    <BaseOutputPath>..\..\dist\demo-net6.0-x86\</BaseOutputPath>
+    <BaseOutputPath>..\..\dist\demo-net10.0-x86\</BaseOutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <Platforms>x86;AnyCPU</Platforms>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>..\..\dist\demo-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\demo-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\dist\demo-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\demo-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <OutputPath>..\..\dist\demo-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\demo-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\dist\demo-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\demo-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
@@ -41,51 +41,42 @@
   
 
   <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\**">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\netcoreapp3.1\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\runtimes\win-x86\native\**">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net10.0-x86\runtimes\win-x86\native\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net6.0-x86\CefSharp.WinForms.dll">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\dist\bin-net10.0-x86\CefSharp.WinForms.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CefSharp.Wrapped.net6.0\CefSharp.Wrapped.net6.0.csproj" />
+    <ProjectReference Include="..\CefSharp.Wrapped.net10.0\CefSharp.Wrapped.net10.0.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CefSharp">
-      <HintPath>..\..\dist\bin-net6.0\CefSharp.dll</HintPath>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.dll</HintPath>
       <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="CefSharp.Core">
-      <HintPath>..\..\dist\bin-net6.0\CefSharp.Core.dll</HintPath>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.dll</HintPath>
       <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="CefSharp.Core.Runtime">
-      <HintPath>..\..\dist\bin-net6.0\CefSharp.Core.Runtime.dll</HintPath>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.Runtime.dll</HintPath>
       <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="CefSharp.WinForms">
-      <HintPath>..\..\dist\bin-net6.0\CefSharp.WinForms.dll</HintPath>
+      <HintPath>..\..\dist\bin-net10.0-x86\CefSharp.WinForms.dll</HintPath>
       <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="CefSharp.Wrapped">
-      <HintPath>..\..\dist\bin-net6.0\CefSharp.Wrapped.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
   </ItemGroup>
   

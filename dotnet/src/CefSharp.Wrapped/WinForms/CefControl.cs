@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CefSharp;
+﻿using CefSharp;
 using CefSharp.WinForms;
+using Logging.SmartStandards.CopyForCefSharpWrapped;
+using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualBasic;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Web.AbstractHosting.CEF.JsBridging;
 using System.Web.AbstractHosting.CEF;
+using System.Web.AbstractHosting.CEF.JsBridging;
+using System.Windows.Forms;
 
 namespace System.Windows.Forms {
 
@@ -60,7 +62,7 @@ namespace System.Windows.Forms {
       [MethodImpl(MethodImplOptions.Synchronized)]
       set {
         if (__Browser != null) {
-          __Browser.FrameLoadEnd -= CefBrowser_FrameLoadEnd;
+          __Browser.FrameLoadEnd -= this.CefBrowser_FrameLoadEnd;
           __Browser.FrameLoadStart -= CefBrowser_FrameLoadStart;
           __Browser.ConsoleMessage -= CefBrowser_ConsoleMessage;
         }
@@ -226,6 +228,7 @@ namespace System.Windows.Forms {
 
     private bool _BrowserDevToolsVisible = false;
 
+    [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)]
     public bool BrowserDevToolsVisible {
       get {
         return _BrowserDevToolsVisible;
@@ -247,24 +250,39 @@ namespace System.Windows.Forms {
       }
     }
 
+    [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)]
     public Action<string> BrowserConsoleErrorLoggingMethod { get; set; } = null;
+
+    [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)]
     public Action<string> BrowserConsoleWarningLoggingMethod { get; set; } = null;
+
+    [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)]
     public Action<string> BrowserConsoleInfoLoggingMethod { get; set; } = null;
 
     private void CefBrowser_ConsoleMessage(object sender, ConsoleMessageEventArgs e) {
-      if(e.Level == LogSeverity.Error) {
-        Trace.TraceError("    JAVA-SCRIPT:| " + e.Message);
+      if(e.Level == LogSeverity.Fatal) {
+        //könnte auch eine 75000er meldung sein...
+        DevLogger.LogCritical("CefSharp.JavaScript", 2089949814652733980L, e.Message);
         if ((this.BrowserConsoleErrorLoggingMethod != null))
           this.BrowserConsoleErrorLoggingMethod.Invoke(e.Message);
       }
+      else if (e.Level == LogSeverity.Error) {
+        DevLogger.LogError("CefSharp.JavaScript", 2089949814652733981L, e.Message);
+        if ((this.BrowserConsoleWarningLoggingMethod != null))
+          this.BrowserConsoleErrorLoggingMethod.Invoke(e.Message);
+      }
       else if (e.Level == LogSeverity.Warning) {
-        Trace.TraceWarning("    JAVA-SCRIPT:| " + e.Message);
+        DevLogger.LogWarning("CefSharp.JavaScript", 2089949814652733982L, e.Message);
+        if ((this.BrowserConsoleWarningLoggingMethod != null))
+          this.BrowserConsoleWarningLoggingMethod.Invoke(e.Message);
+      }
+      else if (e.Level == LogSeverity.Info) {
+        DevLogger.LogInformation("CefSharp.JavaScript", 2089949814652733983L, e.Message);
         if ((this.BrowserConsoleWarningLoggingMethod != null))
           this.BrowserConsoleWarningLoggingMethod.Invoke(e.Message);
       }
       else {
-        if ((this.BrowserConsoleInfoLoggingMethod != null))
-          this.BrowserConsoleInfoLoggingMethod.Invoke(e.Message);
+        DevLogger.LogTrace("CefSharp.JavaScript", 2089949814652733984L, e.Message);
       }
     }
 

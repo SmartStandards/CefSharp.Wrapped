@@ -31,18 +31,17 @@ namespace CefSharp.Wrapped.NetCoreDemo {
       // 
       // cef
       // 
-      //cef.BrowserInstanceSharingGroup = "";
       cef.Dock = DockStyle.Fill;
       cef.Location = new Point(0, 0);
       cef.Name = "cef";
-      cef.Size = new Size(800, 450);
+      cef.Size = new Size(1023, 686);
       cef.TabIndex = 0;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new SizeF(7F, 15F);
       this.AutoScaleMode = AutoScaleMode.Font;
-      this.ClientSize = new Size(800, 450);
+      this.ClientSize = new Size(1023, 686);
       this.Controls.Add(cef);
       this.Name = "Form1";
       this.StartPosition = FormStartPosition.CenterScreen;

@@ -8,7 +8,10 @@ This files contains a version history including all changes relevant for semanti
 
 ## Upcoming Changes
 
-*(none)*
+* **breaking Change**: Updated to CefSharp 146.0.100
+* **new Feature**: Added .NET 10 Target!
+* NetFxDemo & NetCoreDemo-x64 (now at .NET 10!) **VERIFIED TO WORK** (google.de loading successfully)
+* Fixed mapping-issue from JS-Console-Messages to Tracing (now via DevLogger)
 
 
 

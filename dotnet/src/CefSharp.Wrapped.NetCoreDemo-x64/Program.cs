@@ -3,7 +3,7 @@ using System;
 using System.Windows.Forms;
 
 namespace CefSharp.Wrapped.NetCoreDemo {
-  
+
   internal static class Program {
 
     /// <summary>

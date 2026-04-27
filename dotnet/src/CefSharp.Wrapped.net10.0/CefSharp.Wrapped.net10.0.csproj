@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>CefSharp.Wrapped</AssemblyName>
     <RootNamespace>System</RootNamespace>
@@ -23,57 +23,52 @@
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
-    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>   
+    <OutputPath>..\..\dist\bin-net10.0\</OutputPath>
+    <DocumentationFile>..\..\dist\bin-net10.0\CefSharp.Wrapped.xml</DocumentationFile>   
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
-    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>
+    <OutputPath>..\..\dist\bin-net10.0\</OutputPath>
+    <DocumentationFile>..\..\dist\bin-net10.0\CefSharp.Wrapped.xml</DocumentationFile>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
-    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>
+    <OutputPath>..\..\dist\bin-net10.0\</OutputPath>
+    <DocumentationFile>..\..\dist\bin-net10.0\CefSharp.Wrapped.xml</DocumentationFile>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
-    <DocumentationFile>..\..\dist\bin-net6.0\CefSharp.Wrapped.xml</DocumentationFile>
+    <OutputPath>..\..\dist\bin-net10.0\</OutputPath>
+    <DocumentationFile>..\..\dist\bin-net10.0\CefSharp.Wrapped.xml</DocumentationFile>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
   </PropertyGroup>
   <Import Project="..\CefSharp.Wrapped\CefSharp.Wrapped.projitems" Label="Shared" />
   <ItemGroup>
+    <Compile Include="..\CefSharp.Wrapped.net8.0\SmartStandards.Logging.cs" Link="SmartStandards.Logging.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="CefSharp">
-      <HintPath>..\..\dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.Core">
-      <HintPath>..\..\dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.Core.Runtime">
-      <HintPath>..\..\dist\bin-net6.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.Runtime.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net10.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.WinForms">
-      <HintPath>..\..\dist\bin-net6.0-x86\CefSharp.WinForms.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net10.0-x86\CefSharp.WinForms.dll</HintPath>
     </Reference>
   </ItemGroup>
   

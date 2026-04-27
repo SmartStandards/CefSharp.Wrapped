@@ -56,25 +56,36 @@
   <Import Project="..\CefSharp.Wrapped\CefSharp.Wrapped.projitems" Label="Shared" />
   <ItemGroup>
     <Reference Include="CefSharp">
-      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.Core">
-      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.Core.Runtime">
-      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\netcoreapp3.1\CefSharp.Core.Runtime.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\..\dist\bin-net8.0-x86\runtimes\win-x86\lib\net6.0\CefSharp.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp.WinForms">
       <HintPath>..\..\dist\bin-net8.0-x86\CefSharp.WinForms.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="SmartStandards.Logging.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SmartStandards.Logging.cs</LastGenOutput>
+      <CustomToolNamespace>CefSharpWrapped</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SmartStandards.Logging.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SmartStandards.Logging.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   
 </Project>

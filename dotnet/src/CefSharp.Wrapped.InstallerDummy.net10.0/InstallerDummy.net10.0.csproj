@@ -2,35 +2,47 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
     <Platforms>x86</Platforms>   
-    <OutputPath>..\..\dist\bin-net6.0\</OutputPath>
+    <OutputPath>..\..\dist\bin-net10.0\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <StartupObject>CefSharp.Wrapped.InstallerDummy.Program</StartupObject> 
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>..\..\dist\bin-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\bin-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;DEBUG;NET5</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <OutputPath>..\..\dist\bin-net6.0-x86\</OutputPath>
+    <OutputPath>..\..\dist\bin-net10.0-x86\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>1701;1702;1591</NoWarn>
     <DefineConstants>TRACE;NET5</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common.NETCore" Version="123.0.60" />
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="123.0.60" />
-    <PackageReference Include="chromiumembeddedframework.runtime" Version="123.0.6" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="146.0.100" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="146.0.100" />
+    <PackageReference Include="chromiumembeddedframework.runtime" Version="146.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="146.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="146.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="146.0.10" />
   </ItemGroup>
 
 </Project>
