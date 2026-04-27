@@ -1,13 +1,13 @@
 {
-  "currentVersion": "0.1.4",
-  "currentVersionWithSuffix": "0.1.4",
+  "currentVersion": "0.2.0",
+  "currentVersionWithSuffix": "0.2.0",
   "releaseType": "",
-  "previousVersion": "0.1.3",
-  "changeGrade": "fix",
+  "previousVersion": "0.1.4",
+  "changeGrade": "major",
   "currentMajor": 0,
-  "currentMinor": 1,
-  "currentPatch": 4,
-  "versionDateInfo": "2025-05-30",
-  "versionTimeInfo": "12:51:33",
-  "versionNotes": "- Removed .NET 4.6-Targets and enabled .NET 8.0-Targets (while switching build-runner from Win-2019 to WIN-2022)\n"
+  "currentMinor": 2,
+  "currentPatch": 0,
+  "versionDateInfo": "2026-04-27",
+  "versionTimeInfo": "12:34:59",
+  "versionNotes": "- breaking Change: Updated to CefSharp 146.0.100\n- new Feature: Added .NET 10 Target!\n- Fixed mapping-issue from JS-Console-Messages to Tracing (now via DevLogger)\n- NetFxDemo & NetCoreDemo-x64 (now at .NET 10!) **VERIFIED TO WORK** (google.de loading successfully)\n"
 }
