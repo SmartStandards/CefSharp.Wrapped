@@ -11,6 +11,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <StartupObject>CefSharp.Wrapped.InstallerDummy.Program</StartupObject> 
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <UseAppHost>false</UseAppHost>
   </PropertyGroup>
   
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
